@@ -1,0 +1,25 @@
+{
+    "schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "spokeVnetName": {
+            "value":"vnet-spoke-sm-layicorp"
+        },
+        "addressSpace":{
+            "value": [
+                {
+                  "name": "frontend",
+                    "prefix": "10.3.0.0/24"  
+                },
+                {
+                  "name": "backend",
+                    "prefix": "10.3.1.0/24"
+                },
+                {
+                  "name": "db",
+                    "prefix": "10.3.2.0/24"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,17 @@
+# Ignore Bicep build output
+*.json
+
+# But do not ignore parameter files (they imclude ".parameters.json")
+!**/*.parameters*.json
+
+# Ignore VS Code settings
+.vscode/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# macOS + Windows system files
+.DS_Store
+Thumbs.db

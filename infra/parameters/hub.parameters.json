@@ -1,0 +1,40 @@
+{
+   "schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters":{
+        "hubVnetName": {
+            "value":"vnet-hub-layicorp"
+        },
+        "addressSpace":{
+            "value": [
+                "10.0.0.0/16"
+            ]
+        },
+        "hubSubnets": {
+            "value": [
+                {
+                    "name": "AzureFirewallSubnet",
+                     "prefix": "10.0.1.0/26"        
+            },
+            {
+                "name": "shared-services",
+                "prefix": "10.0.2.0/24"
+            },
+            {
+                "name":"bastion",
+                "prefix":"10.0.3.0/27"
+            }
+            ]
+        },
+        "deployFirewall": {
+            "value": true
+        },
+        "firewallName":{
+            "value": "lz-hub-fw-pip"
+        },
+        "firewallPublicIPName":{
+            "value": "lz-hub-fw-pip"
+        }
+
+    }
+}

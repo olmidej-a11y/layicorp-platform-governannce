@@ -1,0 +1,24 @@
+{
+    "schema":"https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "value": "vm-it-app01"
+        },
+        "adminUsername": {
+            "value": "layi-admin"
+        },
+        "vnetName": {
+            "value": "vnet-spoke-it-layicorp"
+        },
+        "subnetName": {
+            "value": "frontend"
+        },
+        "vmSize": {
+            "value": "Standard_B2s"
+        },
+        "windowsSku": {
+            "value": "2019-Datacenter"
+        }
+    }
+}
