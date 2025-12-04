@@ -1,0 +1,31 @@
+{
+  "properties": {
+    "displayName": "require-tag-costcenter",
+    "policyType": "Custom",
+    "mode": "All",
+    "description": "Enforces that all resources include the CostCenter tag with a non-empty value",
+    "metadata": {
+      "category": "LayiCorp-Governance"
+    },
+    "version": "1.0.0",
+    "parameters": {
+      "tagName": {
+        "type": "String",
+        "defaultValue": "CostCenter"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+      },
+      "then": {
+        "effect": "deny"
+      }
+    },
+    "versions": [
+      "1.0.0"
+    ]
+  }
+  
+}

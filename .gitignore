@@ -1,9 +1,3 @@
-# Ignore Bicep build output
-*.json
-
-# But do not ignore parameter files (they imclude ".parameters.json")
-!**/*.parameters*.json
-
 # Ignore VS Code settings
 .vscode/
 
@@ -15,3 +9,24 @@
 # macOS + Windows system files
 .DS_Store
 Thumbs.db
+*.pshistory
+
+
+# RBAC audit output
+exports/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

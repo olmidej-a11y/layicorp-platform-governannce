@@ -1,0 +1,20 @@
+{
+  "mode": "Indexed",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.Network/networkSecurityGroups"
+        },
+        {
+          "field": "Microsoft.Network/networkWatchers/flowLogs[*]",
+          "exists": "false"
+        }
+      ]
+    },
+    "then": {
+      "effect": "Audit"
+    }
+  }
+}

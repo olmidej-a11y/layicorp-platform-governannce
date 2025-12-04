@@ -1,0 +1,37 @@
+{
+  "properties": {
+    "displayName": "deny-open-nsg",
+    "policyType": "Custom",
+    "mode": "All",
+    "description": "Denies insecure NSG rules allowing inbound traffic from any source to management ports(22,3389,5985,5986)",
+    "metadata": {
+      "category": "LayiCorp-Governance"
+    },
+    "version": "1.0.0",
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Network/networkSecurityGroups"
+          },
+          {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].sourceAddressPrefix",
+            "equals": "*"
+          },
+          {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+            "equals": "Allow"
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    },
+    "versions": [
+      "1.0.0"
+    ]
+  }
+  
+}

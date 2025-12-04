@@ -1,6 +1,9 @@
 @description('location for the IT VM')
 param location string = resourceGroup().location
 
+@description('Resource Group for the IT spoke VNet')
+param vnetResourceGroup string ='RG-LayiCorp-Network'
+
 @description('name of the IT VM')
 param vmName string 
 
@@ -31,6 +34,7 @@ var nicName = '${vmName}-nic'
 //
 resource vnet 'Microsoft.Network/virtualNetworks@2022-09-01' existing = {
   name: vnetName
+  scope: resourceGroup(vnetResourceGroup)
 }
 resource subnet 'Microsoft.Network/virtualNetworks/subnets@2022-09-01' existing = {
   parent: vnet
@@ -53,7 +57,7 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2022-09-01' = {
           protocol: 'Tcp'
           access: 'Allow'
           direction: 'Inbound'
-          sourceAddressPrefix: 'AzureBastion'
+          sourceAddressPrefix: 'AzureCloud'
           sourcePortRange: '*'
           destinationAddressPrefix: '*'
           destinationPortRange: '3389'

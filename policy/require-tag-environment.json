@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "displayName": "require-tag-environment",
+    "policyType": "Custom",
+    "mode": "All",
+    "description": "Enforces that all resources include the environment tag with a non-empty value",
+    "metadata": {
+      "category": "LayiCorp-Governance"
+    },
+    "version": "1.0.0",
+    "parameters": {
+      "tagName": {
+        "type": "String",
+        "defaultValue": "Environment"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+      },
+      "then": {
+        "effect": "deny"
+      }
+    },
+    "versions": [
+      "1.0.0"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "properties": {
+    "displayName": "LayiCorp Baseline Governance",
+    "description": "Baseline governance controls for required tagging and NSG hardening across the LayiCorp platform.",
+    "policyType": "Custom",
+    "metadata": {
+      "category": "LayiCorp-Governance",
+      "version": "1.0.0"
+    },
+    "parameters": {},
+    "policyDefinitions": [
+      {
+        "policyDefinitionReferenceId": "require-tag-owner-ref",
+        "policyDefinitionId": "<<REPLACE_REQUIRE_TAG_OWNER_POLICY_ID>>"
+      },
+      {
+        "policyDefinitionReferenceId": "require-tag-environment-ref",
+        "policyDefinitionId": "<<REPLACE_REQUIRE_TAG_ENVIRONMENT_POLICY_ID>>"
+      },
+      {
+        "policyDefinitionReferenceId": "require-tag-costcenter-ref",
+        "policyDefinitionId": "<<REPLACE_REQUIRE_TAG_COSTCENTER_POLICY_ID>>"
+      },
+      {
+        "policyDefinitionReferenceId": "deny-open-nsg-ref",
+        "policyDefinitionId": "<<REPLACE_DENY_OPEN_NSG_POLICY_ID>>"
+      },
+      {
+        "policyDefinitionReferenceId": "audit-rg-missing-tags-ref",
+        "policyDefinitionId": "<<REPLACE_AUDIT_RG_MISSING_TAGS_POLICY_ID>>"
+      }
+    ]
+  }
+}

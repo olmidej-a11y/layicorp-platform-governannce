@@ -1,0 +1,36 @@
+{
+  "properties": {
+    "displayName": "audit-rg-missing-tags",
+    "policyType": "Custom",
+    "mode": "All",
+    "description": "Flags resource groups missing required tags",
+    "metadata": {
+      "category": "LayiCorp-Governance"
+    },
+    "version": "1.0.0",
+    "policyRule": {
+      "if": {
+        "anyOf": [
+          {
+            "field": "tags['Owner']",
+            "exists": "false"
+          },
+          {
+            "field": "tags['Environment']",
+            "exists": "false"
+          },
+          {
+            "field": "tags['CostCenter']",
+            "exists": "false"
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    },
+    "versions": [
+      "1.0.0"
+    ]
+  }
+}

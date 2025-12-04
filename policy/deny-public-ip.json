@@ -1,0 +1,45 @@
+{
+  "mode": "Indexed",
+  "parameters": {
+    "allowedUsages": {
+      "type": "Array",
+      "defaultValue": [
+        "LoadBalancer",
+        "ApplicationGateway",
+        "Firewall",
+        "Bastion",
+        "VpnGateway"
+      ],
+      "metadata": {
+        "description": "Allowed values for the PublicIPUsage tag on public IP addresses."
+      }
+    }
+  },
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.Network/publicIPAddresses"
+        },
+        {
+          "anyOf": [
+            {
+              "field": "tags['PublicIPUsage']",
+              "exists": "false"
+            },
+            {
+              "not": {
+                "field": "tags['PublicIPUsage']",
+                "in": "[parameters('allowedUsages')]"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  }
+}
